@@ -4,7 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -20,7 +19,8 @@ import ru.mydelivery.Main.MainActivity;
 import ru.mydelivery.R;
 import ru.mydelivery.network.Model.Login.Login;
 
-public class SplashActivity extends AppCompatActivity implements LoginView<Login>, CompoundButton.OnCheckedChangeListener {
+public class SplashActivity extends AppCompatActivity implements LoginView<Login>,
+        CompoundButton.OnCheckedChangeListener {
 
     @BindView(R.id.editLogin)
     EditText mEditLogin;
@@ -101,7 +101,7 @@ public class SplashActivity extends AppCompatActivity implements LoginView<Login
     }
 
     @Override
-    public void onSavedUser(boolean check, String login, String password) {
+    public void restoreSavedLoginAndPassword(boolean check, String login, String password) {
         mCheckBox.setChecked(check);
         mEditLogin.setText(login);
         mEditPassword.setText(password);

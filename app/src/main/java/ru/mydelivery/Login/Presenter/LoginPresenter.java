@@ -75,6 +75,6 @@ public class LoginPresenter implements Presenter, LoginInteractor.OnLoginListene
 
     @Override
     public void onSavedUser(boolean check, String login, String password) {
-        mLoginView.onSavedUser(check, login, password);
+        mLoginView.restoreSavedLoginAndPassword(check, login, password);
     }
 }

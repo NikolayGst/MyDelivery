@@ -9,6 +9,6 @@ public interface LoginView<T> {
     void userIsNotFound(@StringRes int resId);
     void showProgressDialog();
     void hideProgressDialog();
-    void onSavedUser(boolean check, String login, String password);
+    void restoreSavedLoginAndPassword(boolean check, String login, String password);
     void goToMainActivity(T t);
 }
