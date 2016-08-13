@@ -3,7 +3,7 @@ package ru.mydelivery.Login.Model;
 
 import android.os.Handler;
 
-public class LoginInteractorImpl implements LoginInteractor<String> {
+public class OfflineLoginInteractor implements LoginInteractor<String> {
 
     @Override
     public void loginUser(final String login, final String password, final OnLoginListener<String> onLoginListener) {

@@ -1,7 +1,7 @@
 package ru.mydelivery.Login.Presenter;
 
 import ru.mydelivery.Login.Model.LoginInteractor;
-import ru.mydelivery.Login.Model.LoginInteractorImpl;
+import ru.mydelivery.Login.Model.OfflineLoginInteractor;
 import ru.mydelivery.Login.View.LoginView;
 
 public class LoginPresenter implements LoginInteractor.OnLoginListener<String> {
@@ -10,7 +10,7 @@ public class LoginPresenter implements LoginInteractor.OnLoginListener<String> {
 
     public LoginPresenter(LoginView loginView) {
         mLoginView = loginView;
-        mLoginInteractor = new LoginInteractorImpl();
+        mLoginInteractor = new OfflineLoginInteractor();
     }
 
     public void loginUser(String login, String password){
