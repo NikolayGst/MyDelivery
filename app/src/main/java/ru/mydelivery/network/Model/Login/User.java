@@ -8,16 +8,16 @@ public class User {
 
     @SerializedName("id")
     @Expose
-    private String id;
+    private int id;
     @SerializedName("login")
     @Expose
     private String login;
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

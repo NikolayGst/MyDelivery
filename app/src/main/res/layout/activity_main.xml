@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@color/whiteTheme">
 
-    <!--<android.support.v4.widget.SwipeRefreshLayout
+    <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -30,5 +30,5 @@
         android:onClick="OnClick"
         android:src="@mipmap/ic_fab_exit"
         app:backgroundTint="@color/red"
-        />-->
+        />
 </RelativeLayout>
