@@ -1,11 +1,11 @@
 package ru.mydelivery.Login.View;
 
-public interface LoginView {
+public interface LoginView<T> {
     void errorIsEmptyLogin();
     void errorIsEmptyPassword();
     void errorIsServer();
     void userIsNotFound();
     void showProgressDialog();
     void hideProgressDialog();
-    void goToMainActivity();
+    void goToMainActivity(T t);
 }

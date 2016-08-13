@@ -14,8 +14,9 @@ import ru.mydelivery.Login.Presenter.LoginPresenter;
 import ru.mydelivery.Login.View.LoginView;
 import ru.mydelivery.Main.MainActivity;
 import ru.mydelivery.R;
+import ru.mydelivery.network.Model.Login.Login;
 
-public class SplashActivity extends AppCompatActivity implements LoginView {
+public class SplashActivity extends AppCompatActivity implements LoginView<Login> {
 
     @BindView(R.id.editLogin)
     EditText mEditLogin;
@@ -81,8 +82,10 @@ public class SplashActivity extends AppCompatActivity implements LoginView {
     }
 
     @Override
-    public void goToMainActivity() {
+    public void goToMainActivity(Login login) {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("id", login.getUser().getId());
+        intent.putExtra("login", login.getUser().getLogin());
         startActivity(intent);
     }
 }

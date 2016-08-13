@@ -1,16 +1,17 @@
 package ru.mydelivery.Login.Presenter;
 
 import ru.mydelivery.Login.Model.LoginInteractor;
-import ru.mydelivery.Login.Model.OfflineLoginInteractor;
+import ru.mydelivery.Login.Model.OnlineLoginInteractor;
 import ru.mydelivery.Login.View.LoginView;
+import ru.mydelivery.network.Model.Login.Login;
 
-public class LoginPresenter implements LoginInteractor.OnLoginListener<String> {
-    private LoginView mLoginView;
-    private LoginInteractor<String> mLoginInteractor;
+public class LoginPresenter implements LoginInteractor.OnLoginListener<Login> {
+    private LoginView<Login> mLoginView;
+    private LoginInteractor<Login> mLoginInteractor;
 
-    public LoginPresenter(LoginView loginView) {
+    public LoginPresenter(LoginView<Login> loginView) {
         mLoginView = loginView;
-        mLoginInteractor = new OfflineLoginInteractor();
+        mLoginInteractor = new OnlineLoginInteractor();
     }
 
     public void loginUser(String login, String password){
@@ -28,10 +29,11 @@ public class LoginPresenter implements LoginInteractor.OnLoginListener<String> {
         mLoginInteractor.loginUser(login, password, this);
     }
 
+
     @Override
-    public void onSuccess(String s) {
-        if(s.equals("done")) {
-            mLoginView.goToMainActivity();
+    public void onSuccess(Login login) {
+        if(login != null) {
+            mLoginView.goToMainActivity(login);
             mLoginView.hideProgressDialog();
         } else {
             mLoginView.userIsNotFound();
