@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">MyDelivery</string>
+    <string name="error.empty.login">Поле для логина пустое!</string>
+    <string name="error_empty_password">Поле для пароля пустое!</string>
+    <string name="error_server">Проблемы с сервером</string>
+    <string name="error_user_not_found">Пользователь не найден!</string>
 </resources>

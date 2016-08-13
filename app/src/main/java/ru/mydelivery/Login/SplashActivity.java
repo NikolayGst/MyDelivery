@@ -4,6 +4,9 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -11,21 +14,25 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import ru.mydelivery.Login.Presenter.LoginPresenter;
+import ru.mydelivery.Login.Presenter.Presenter;
 import ru.mydelivery.Login.View.LoginView;
 import ru.mydelivery.Main.MainActivity;
 import ru.mydelivery.R;
 import ru.mydelivery.network.Model.Login.Login;
 
-public class SplashActivity extends AppCompatActivity implements LoginView<Login> {
+public class SplashActivity extends AppCompatActivity implements LoginView<Login>, CompoundButton.OnCheckedChangeListener {
 
     @BindView(R.id.editLogin)
     EditText mEditLogin;
     @BindView(R.id.editPassword)
     EditText mEditPassword;
+    @BindView(R.id.setLogin)
+    CheckBox mCheckBox;
 
-    private LoginPresenter mLoginPresenter;
+    private Presenter mLoginPresenter;
     private ProgressDialog mProgressDialog;
-
+    private String login;
+    private String password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +40,14 @@ public class SplashActivity extends AppCompatActivity implements LoginView<Login
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         initProgressDialog();
-        mLoginPresenter = new LoginPresenter(this);
+        mLoginPresenter = new LoginPresenter(this, this);
+        mCheckBox.setOnCheckedChangeListener(this);
     }
 
     @OnClick(R.id.button)
     void login() {
-        String login = mEditLogin.getText().toString().trim();
-        String password = mEditPassword.getText().toString().trim();
+        login = mEditLogin.getText().toString().trim();
+        password = mEditPassword.getText().toString().trim();
         mLoginPresenter.loginUser(login, password);
     }
 
@@ -50,23 +58,23 @@ public class SplashActivity extends AppCompatActivity implements LoginView<Login
     }
 
     @Override
-    public void errorIsEmptyLogin() {
-        Toast.makeText(SplashActivity.this, "Поле для логина пустое!", Toast.LENGTH_SHORT).show();
+    public void errorIsEmptyLogin(int resId) {
+        Toast.makeText(SplashActivity.this, resId, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void errorIsEmptyPassword() {
-        Toast.makeText(SplashActivity.this, "Поле для пароля пустое!", Toast.LENGTH_SHORT).show();
+    public void errorIsEmptyPassword(int resId) {
+        Toast.makeText(SplashActivity.this, resId, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void errorIsServer() {
-        Toast.makeText(SplashActivity.this, "Проблемы с сервером", Toast.LENGTH_SHORT).show();
+    public void errorIsServer(int resId) {
+        Toast.makeText(SplashActivity.this, resId, Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void userIsNotFound() {
-        Toast.makeText(SplashActivity.this, "Пользователь не найден!", Toast.LENGTH_SHORT).show();
+    public void userIsNotFound(int resId) {
+        Toast.makeText(SplashActivity.this, resId, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -82,10 +90,35 @@ public class SplashActivity extends AppCompatActivity implements LoginView<Login
     }
 
     @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        login = mEditLogin.getText().toString().trim();
+        password = mEditPassword.getText().toString().trim();
+        if (compoundButton.isChecked()) {
+            mLoginPresenter.saveUser(true, login, password);
+        } else {
+            mLoginPresenter.saveUser(false, "", "");
+        }
+    }
+
+    @Override
+    public void onSavedUser(boolean check, String login, String password) {
+        mCheckBox.setChecked(check);
+        mEditLogin.setText(login);
+        mEditPassword.setText(password);
+    }
+
+    @Override
     public void goToMainActivity(Login login) {
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra("id", login.getUser().getId());
         intent.putExtra("login", login.getUser().getLogin());
         startActivity(intent);
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mLoginPresenter.onDestroy();
     }
 }

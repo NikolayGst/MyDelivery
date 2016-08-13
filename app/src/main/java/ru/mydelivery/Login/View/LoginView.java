@@ -1,11 +1,14 @@
 package ru.mydelivery.Login.View;
 
+import android.support.annotation.StringRes;
+
 public interface LoginView<T> {
-    void errorIsEmptyLogin();
-    void errorIsEmptyPassword();
-    void errorIsServer();
-    void userIsNotFound();
+    void errorIsEmptyLogin(@StringRes int resId);
+    void errorIsEmptyPassword(@StringRes int resId);
+    void errorIsServer(@StringRes int resId);
+    void userIsNotFound(@StringRes int resId);
     void showProgressDialog();
     void hideProgressDialog();
+    void onSavedUser(boolean check, String login, String password);
     void goToMainActivity(T t);
 }
