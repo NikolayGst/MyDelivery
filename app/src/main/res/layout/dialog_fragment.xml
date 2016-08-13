@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="8dp"
+    android:background="@color/white">
+
+    <ListView
+        android:id="@+id/list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </ListView>
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rltStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/list"
+        android:background="@drawable/form_bg"
+        >
+
+        <TextView
+            android:id="@+id/txtRltStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="Причина отмены"
+            android:textSize="16sp"/>
+
+        <EditText
+            android:id="@+id/txtStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtRltStatus"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:inputType="textMultiLine"
+            android:padding="16dp"/>
+        <EditText
+            android:id="@+id/txtNewDate"
+            android:visibility="gone"
+            android:focusable="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtRltStatus"
+            android:layout_marginTop="10dp"
+            android:background="@null"
+            android:inputType="text"
+            android:padding="16dp"/>
+    </RelativeLayout>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/btnOk"
+        android:layout_width="250dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rltStatus"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/red"
+        android:onClick="setStatusClick"
+        android:text="ОК"
+        android:textColor="@color/white"
+        android:textStyle="bold"/>
+</RelativeLayout>
