@@ -34,6 +34,7 @@ public class SplashActivity extends AppCompatActivity implements LoginView<Login
     private String login;
     private String password;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
