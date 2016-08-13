@@ -1,4 +1,4 @@
-package ru.mydelivery.Login.Model;
+package ru.mydelivery.Activities.Login.Model;
 
 public interface LoginInteractor<T> {
 

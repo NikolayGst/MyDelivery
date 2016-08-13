@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Login.SplashActivity"
+            android:name=".Activities.Login.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/MyMaterialTheme.Base.noActionBar">
             <intent-filter>
@@ -20,7 +20,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Main.MainActivity">
+        <activity android:name=".Activities.Main.MainActivity">
         </activity>
     </application>
 

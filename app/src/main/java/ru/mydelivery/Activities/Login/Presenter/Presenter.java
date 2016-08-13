@@ -1,4 +1,4 @@
-package ru.mydelivery.Login.Presenter;
+package ru.mydelivery.Activities.Login.Presenter;
 
 /**
  * Created by Николай on 13.08.2016.

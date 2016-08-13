@@ -1,10 +1,10 @@
-package ru.mydelivery.Login.Presenter;
+package ru.mydelivery.Activities.Login.Presenter;
 
 import android.content.Context;
 
-import ru.mydelivery.Login.Model.LoginInteractor;
-import ru.mydelivery.Login.Model.OnlineLoginInteractor;
-import ru.mydelivery.Login.View.LoginView;
+import ru.mydelivery.Activities.Login.Model.LoginInteractor;
+import ru.mydelivery.Activities.Login.Model.OnlineLoginInteractor;
+import ru.mydelivery.Activities.Login.View.LoginView;
 import ru.mydelivery.R;
 import ru.mydelivery.Utils.SessionListener;
 import ru.mydelivery.Utils.SessionManager;

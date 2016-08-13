@@ -1,4 +1,4 @@
-package ru.mydelivery.Login;
+package ru.mydelivery.Activities.Login;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -12,10 +12,10 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import ru.mydelivery.Login.Presenter.LoginPresenter;
-import ru.mydelivery.Login.Presenter.Presenter;
-import ru.mydelivery.Login.View.LoginView;
-import ru.mydelivery.Main.MainActivity;
+import ru.mydelivery.Activities.Login.Presenter.LoginPresenter;
+import ru.mydelivery.Activities.Login.Presenter.Presenter;
+import ru.mydelivery.Activities.Login.View.LoginView;
+import ru.mydelivery.Activities.Main.MainActivity;
 import ru.mydelivery.R;
 import ru.mydelivery.network.Model.Login.Login;
 

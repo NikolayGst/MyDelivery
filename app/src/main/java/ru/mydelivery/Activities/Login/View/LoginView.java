@@ -1,4 +1,4 @@
-package ru.mydelivery.Login.View;
+package ru.mydelivery.Activities.Login.View;
 
 import android.support.annotation.StringRes;
 
