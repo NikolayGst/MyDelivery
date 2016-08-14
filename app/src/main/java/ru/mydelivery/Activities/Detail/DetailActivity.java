@@ -1,5 +1,6 @@
 package ru.mydelivery.Activities.Detail;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
@@ -38,9 +39,11 @@ public class DetailActivity extends AppCompatActivity implements DetailView<JobF
 
     private Bundle intent;
     private String mUserId;
+    private String telephone;
     private String mJobsId;
 
     private DetailPresenter mDetailPresenter;
+    private ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,19 +54,32 @@ public class DetailActivity extends AppCompatActivity implements DetailView<JobF
         init();
 
         mDetailPresenter = new DetailPresenterImpl(this);
-        mDetailPresenter.loadJob(mUserId, mJobsId);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mDetailPresenter.loadJob(mUserId, mJobsId);
     }
 
     private void init() {
         intent = getIntent().getExtras();
         mUserId = intent.getString("userId");
         mJobsId = intent.getString("jobsId");
+        mProgressDialog = new ProgressDialog(this);
+        mProgressDialog.setMessage("Загрузка работы...");
+        mProgressDialog.setCancelable(false);
     }
 
     @OnClick(R.id.btnStatus)
     void showStatusDialog() {
         mDetailPresenter.showStatusDialog(mUserId, mJobsId, getSupportFragmentManager());
+    }
+
+    @OnClick(R.id.txtTelephone)
+    void tel() {
+        mDetailPresenter.telByNumberPhone(this, telephone);
     }
 
     @Override
@@ -77,6 +93,19 @@ public class DetailActivity extends AppCompatActivity implements DetailView<JobF
         mTxtDesc.setText(user.getDescription());
         mTxtNote.setText(user.getNote());
         mTxtPrice.setText(user.getPrice() + " грн.");
+        telephone = user.getTelephone();
+    }
+
+    @Override
+    public void showProgressDialog() {
+        if (!mProgressDialog.isShowing())
+            mProgressDialog.show();
+    }
+
+    @Override
+    public void hideProgressDialog() {
+        if (mProgressDialog.isShowing())
+            mProgressDialog.dismiss();
     }
 
     @Override

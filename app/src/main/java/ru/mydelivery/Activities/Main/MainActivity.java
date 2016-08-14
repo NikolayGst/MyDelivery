@@ -40,8 +40,13 @@ public class MainActivity extends AppCompatActivity implements MainView<List<Job
         init();
 
         mMainPresenter = new MainPresenterImpl(this);
-        mMainPresenter.getJobs(id);
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mMainPresenter.getJobs(id);
     }
 
     private void init() {
