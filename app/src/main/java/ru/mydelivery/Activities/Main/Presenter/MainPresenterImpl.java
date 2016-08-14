@@ -6,7 +6,7 @@ import ru.mydelivery.Activities.Main.Model.MainInteractor;
 import ru.mydelivery.Activities.Main.Model.MainInteractorImpl;
 import ru.mydelivery.Activities.Main.View.MainView;
 import ru.mydelivery.R;
-import ru.mydelivery.network.Model.Main.Jobs;
+import ru.mydelivery.Model.Main.Jobs;
 
 public class MainPresenterImpl implements MainPresenter, MainInteractor.OnLoadingCompletedListener<List<Jobs>> {
 

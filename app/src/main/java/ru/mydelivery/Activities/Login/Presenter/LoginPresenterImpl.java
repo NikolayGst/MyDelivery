@@ -1,16 +1,16 @@
 package ru.mydelivery.Activities.Login.Presenter;
 
 import android.content.Context;
-
 import ru.mydelivery.Activities.Login.Model.LoginInteractor;
 import ru.mydelivery.Activities.Login.Model.OnlineLoginInteractor;
 import ru.mydelivery.Activities.Login.View.LoginView;
 import ru.mydelivery.R;
 import ru.mydelivery.Utils.SessionListener;
 import ru.mydelivery.Utils.SessionManager;
-import ru.mydelivery.network.Model.Login.Login;
+import ru.mydelivery.Model.Login.Login;
 
 public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLoginListener<Login>, SessionListener {
+
     private LoginView<Login> mLoginView;
     private LoginInteractor<Login> mLoginInteractor;
     private SessionManager mSessionManager;
@@ -50,13 +50,6 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLog
     }
 
     @Override
-    public void onDestroy() {
-        mLoginView = null;
-        mSessionManager = null;
-        mLoginInteractor = null;
-    }
-
-    @Override
     public void onSuccess(Login login) {
         if (login != null) {
             mLoginView.goToMainActivity(login);
@@ -76,5 +69,12 @@ public class LoginPresenterImpl implements LoginPresenter, LoginInteractor.OnLog
     @Override
     public void onSavedUser(boolean check, String login, String password) {
         mLoginView.restoreSavedLoginAndPassword(check, login, password);
+    }
+
+    @Override
+    public void onDestroy() {
+        mLoginView = null;
+        mSessionManager = null;
+        mLoginInteractor = null;
     }
 }

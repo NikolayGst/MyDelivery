@@ -18,7 +18,7 @@ import ru.mydelivery.Activities.Main.View.MainView;
 import ru.mydelivery.Adapter.ListJobAdapter;
 import ru.mydelivery.R;
 import ru.mydelivery.Utils.DividerItemDecoration;
-import ru.mydelivery.network.Model.Main.Jobs;
+import ru.mydelivery.Model.Main.Jobs;
 
 public class MainActivity extends AppCompatActivity implements MainView<List<Jobs>>, SwipeRefreshLayout.OnRefreshListener {
 

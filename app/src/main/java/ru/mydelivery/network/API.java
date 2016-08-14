@@ -1,4 +1,4 @@
-package ru.mydelivery.network;
+package ru.mydelivery.Network;
 
 import java.util.List;
 
@@ -6,10 +6,10 @@ import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
-import ru.mydelivery.network.Model.Detail.JobForUser;
-import ru.mydelivery.network.Model.Detail.Status;
-import ru.mydelivery.network.Model.Login.Login;
-import ru.mydelivery.network.Model.Main.Jobs;
+import ru.mydelivery.Model.Detail.JobForUser;
+import ru.mydelivery.Model.Detail.Status;
+import ru.mydelivery.Model.Login.Login;
+import ru.mydelivery.Model.Main.Jobs;
 
 public interface API {
 

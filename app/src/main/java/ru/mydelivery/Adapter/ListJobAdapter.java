@@ -20,8 +20,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.mydelivery.Activities.Detail.DetailActivity;
 import ru.mydelivery.R;
-import ru.mydelivery.network.Model.Main.Jobs;
-import ru.mydelivery.network.Model.Main.User;
+import ru.mydelivery.Model.Main.Jobs;
+import ru.mydelivery.Model.Main.User;
 
 
 public class ListJobAdapter extends RecyclerView.Adapter<ListJobAdapter.ViewHolder> {

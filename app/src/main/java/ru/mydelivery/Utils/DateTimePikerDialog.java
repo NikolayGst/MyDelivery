@@ -2,11 +2,9 @@ package ru.mydelivery.Utils;
 
 import android.app.Activity;
 import android.widget.EditText;
-
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.RadialPickerLayout;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
-
 import java.util.Calendar;
 
 public class DateTimePikerDialog implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {

@@ -1,6 +1,5 @@
 package ru.mydelivery.Activities.Login.Model;
 
-
 import android.os.Handler;
 
 public class OfflineLoginInteractor implements LoginInteractor<String> {

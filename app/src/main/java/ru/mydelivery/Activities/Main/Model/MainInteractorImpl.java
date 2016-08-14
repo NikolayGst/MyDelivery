@@ -1,12 +1,11 @@
 package ru.mydelivery.Activities.Main.Model;
 
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import ru.mydelivery.network.Model.Main.Jobs;
-import ru.mydelivery.network.Request;
+import ru.mydelivery.Model.Main.Jobs;
+import ru.mydelivery.Network.Request;
 
 public class MainInteractorImpl implements MainInteractor<List<Jobs>> {
 

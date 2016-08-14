@@ -6,8 +6,6 @@ import android.content.SharedPreferences.Editor;
 
 public class SessionManager {
 
-    private static String TAG = SessionManager.class.getSimpleName();
-
     private SharedPreferences pref;
     private MySharedPreferences spref;
     private Editor editor;

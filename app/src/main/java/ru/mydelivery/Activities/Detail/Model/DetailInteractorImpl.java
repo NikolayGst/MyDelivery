@@ -3,8 +3,8 @@ package ru.mydelivery.Activities.Detail.Model;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import ru.mydelivery.network.Model.Detail.JobForUser;
-import ru.mydelivery.network.Request;
+import ru.mydelivery.Model.Detail.JobForUser;
+import ru.mydelivery.Network.Request;
 
 public class DetailInteractorImpl implements DetailInteractor<JobForUser> {
 

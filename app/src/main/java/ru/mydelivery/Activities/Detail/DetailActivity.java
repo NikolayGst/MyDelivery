@@ -6,7 +6,6 @@ import android.support.annotation.StringRes;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -14,8 +13,8 @@ import ru.mydelivery.Activities.Detail.Presenter.DetailPresenter;
 import ru.mydelivery.Activities.Detail.Presenter.DetailPresenterImpl;
 import ru.mydelivery.Activities.Detail.View.DetailView;
 import ru.mydelivery.R;
-import ru.mydelivery.network.Model.Detail.JobForUser;
-import ru.mydelivery.network.Model.Detail.User;
+import ru.mydelivery.Model.Detail.JobForUser;
+import ru.mydelivery.Model.Detail.User;
 
 
 public class DetailActivity extends AppCompatActivity implements DetailView<JobForUser> {

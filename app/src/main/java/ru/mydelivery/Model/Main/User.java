@@ -1,5 +1,5 @@
 
-package ru.mydelivery.network.Model.Main;
+package ru.mydelivery.Model.Main;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

@@ -3,8 +3,8 @@ package ru.mydelivery.Activities.Login.Model;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import ru.mydelivery.network.Model.Login.Login;
-import ru.mydelivery.network.Request;
+import ru.mydelivery.Model.Login.Login;
+import ru.mydelivery.Network.Request;
 
 public class OnlineLoginInteractor implements LoginInteractor<Login> {
 
@@ -17,7 +17,6 @@ public class OnlineLoginInteractor implements LoginInteractor<Login> {
                     Login login = response.body();
                     if (login.isError()) {
                         onLoginListener.onSuccess(null);
-                        return;
                     }
                     else onLoginListener.onSuccess(login);
                 }else {

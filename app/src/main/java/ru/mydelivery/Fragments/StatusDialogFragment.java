@@ -22,8 +22,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 import ru.mydelivery.R;
 import ru.mydelivery.Utils.DateTimePikerDialog;
-import ru.mydelivery.network.Model.Detail.Status;
-import ru.mydelivery.network.Request;
+import ru.mydelivery.Model.Detail.Status;
+import ru.mydelivery.Network.Request;
 
 
 public class StatusDialogFragment extends DialogFragment implements AdapterView.OnItemClickListener,

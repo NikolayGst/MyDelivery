@@ -8,7 +8,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -17,7 +16,7 @@ import ru.mydelivery.Activities.Login.Presenter.LoginPresenter;
 import ru.mydelivery.Activities.Login.View.LoginView;
 import ru.mydelivery.Activities.Main.MainActivity;
 import ru.mydelivery.R;
-import ru.mydelivery.network.Model.Login.Login;
+import ru.mydelivery.Model.Login.Login;
 
 public class LoginActivity extends AppCompatActivity implements LoginView<Login>,
         CompoundButton.OnCheckedChangeListener {
@@ -33,7 +32,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView<Login>
     private ProgressDialog mProgressDialog;
     private String login;
     private String password;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

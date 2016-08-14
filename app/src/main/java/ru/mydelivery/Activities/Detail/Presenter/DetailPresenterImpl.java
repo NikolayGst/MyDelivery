@@ -9,13 +9,12 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentManager;
-
 import ru.mydelivery.Activities.Detail.Model.DetailInteractor;
 import ru.mydelivery.Activities.Detail.Model.DetailInteractorImpl;
 import ru.mydelivery.Activities.Detail.View.DetailView;
 import ru.mydelivery.Fragments.StatusDialogFragment;
 import ru.mydelivery.R;
-import ru.mydelivery.network.Model.Detail.JobForUser;
+import ru.mydelivery.Model.Detail.JobForUser;
 
 public class DetailPresenterImpl implements DetailPresenter, DetailInteractor.OnJobLoadingListener<JobForUser> {
 
