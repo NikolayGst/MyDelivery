@@ -288,7 +288,6 @@
             android:layout_below="@id/rltNote"
             android:textColor="@color/white"
             android:textStyle="bold"
-            android:onClick="showDialog"
             android:text="Сменить статус"
             android:layout_marginBottom="8dp"
             android:background="@color/greenText"

@@ -20,25 +20,26 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ru.mydelivery.Activities.Detail.DetailActivity;
 import ru.mydelivery.R;
-import ru.mydelivery.network.Model.Main.JobsForUser;
+import ru.mydelivery.network.Model.Main.Jobs;
 import ru.mydelivery.network.Model.Main.User;
 
 
 public class ListJobAdapter extends RecyclerView.Adapter<ListJobAdapter.ViewHolder> {
 
-    private List<JobsForUser> mJobList;
+    private List<Jobs> mJobList;
     private String mLetter;
     private Context mContext;
     private TextDrawable mTextDrawable;
     private ColorGenerator mGenerator = ColorGenerator.MATERIAL;
-    private JobsForUser mJob;
+    private Jobs mJob;
 
     public ListJobAdapter(Context context) {
         mJobList = Collections.emptyList();
         mContext = context;
     }
 
-    public void setJobList(List<JobsForUser> jobList) {
+    public void setJobList(List<Jobs> jobList) {
+        mJobList.clear();
         mJobList = jobList;
         notifyDataSetChanged();
     }

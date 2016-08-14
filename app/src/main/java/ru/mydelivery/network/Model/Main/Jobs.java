@@ -4,7 +4,7 @@ package ru.mydelivery.network.Model.Main;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class JobsForUser {
+public class Jobs {
 
     @SerializedName("user")
     @Expose

@@ -5,16 +5,16 @@ import java.util.List;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import ru.mydelivery.network.Model.Main.JobsForUser;
+import ru.mydelivery.network.Model.Main.Jobs;
 import ru.mydelivery.network.Request;
 
-public class MainInteractorImpl implements MainInteractor<List<JobsForUser>> {
+public class MainInteractorImpl implements MainInteractor<List<Jobs>> {
 
     @Override
-    public void loadingJobs(int id, final OnLoadingCompletedListener<List<JobsForUser>> onLoadingCompletedListener) {
-        Request.getInstance().getListJobs(id).enqueue(new Callback<List<JobsForUser>>() {
+    public void loadingJobs(int id, final OnLoadingCompletedListener<List<Jobs>> onLoadingCompletedListener) {
+        Request.getInstance().getListJobs(id).enqueue(new Callback<List<Jobs>>() {
             @Override
-            public void onResponse(Call<List<JobsForUser>> call, Response<List<JobsForUser>> response) {
+            public void onResponse(Call<List<Jobs>> call, Response<List<Jobs>> response) {
                 if (response.body() != null) {
                     onLoadingCompletedListener.onSuccess(response.body());
                 } else {
@@ -23,7 +23,7 @@ public class MainInteractorImpl implements MainInteractor<List<JobsForUser>> {
             }
 
             @Override
-            public void onFailure(Call<List<JobsForUser>> call, Throwable t) {
+            public void onFailure(Call<List<Jobs>> call, Throwable t) {
                 onLoadingCompletedListener.onFailure();
             }
         });

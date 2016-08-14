@@ -12,8 +12,8 @@ import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import ru.mydelivery.Activities.Login.Presenter.LoginPresenterImpl;
 import ru.mydelivery.Activities.Login.Presenter.LoginPresenter;
-import ru.mydelivery.Activities.Login.Presenter.Presenter;
 import ru.mydelivery.Activities.Login.View.LoginView;
 import ru.mydelivery.Activities.Main.MainActivity;
 import ru.mydelivery.R;
@@ -29,7 +29,7 @@ public class SplashActivity extends AppCompatActivity implements LoginView<Login
     @BindView(R.id.setLogin)
     CheckBox mCheckBox;
 
-    private Presenter mLoginPresenter;
+    private LoginPresenter mLoginPresenter;
     private ProgressDialog mProgressDialog;
     private String login;
     private String password;
@@ -41,7 +41,7 @@ public class SplashActivity extends AppCompatActivity implements LoginView<Login
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         initProgressDialog();
-        mLoginPresenter = new LoginPresenter(this, this);
+        mLoginPresenter = new LoginPresenterImpl(this, this);
         mCheckBox.setOnCheckedChangeListener(this);
     }
 

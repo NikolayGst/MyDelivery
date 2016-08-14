@@ -6,8 +6,9 @@ import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
+import ru.mydelivery.network.Model.Detail.JobForUser;
 import ru.mydelivery.network.Model.Login.Login;
-import ru.mydelivery.network.Model.Main.JobsForUser;
+import ru.mydelivery.network.Model.Main.Jobs;
 
 public interface API {
 
@@ -17,6 +18,10 @@ public interface API {
 
     @FormUrlEncoded
     @POST("/getListJobs.php")
-    Call<List<JobsForUser>> getListJobs(@Field("id") Integer id);
+    Call<List<Jobs>> getListJobs(@Field("id") Integer id);
+
+    @FormUrlEncoded
+    @POST("/jobForUser.php")
+    Call<JobForUser> getJobForUser(@Field("id") String id, @Field("jobs_id") String jobId);
 
 }
