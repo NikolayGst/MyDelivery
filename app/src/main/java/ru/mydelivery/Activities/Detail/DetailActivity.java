@@ -112,4 +112,10 @@ public class DetailActivity extends AppCompatActivity implements DetailView<JobF
     public void errorIsServer(@StringRes int resId) {
         Toast.makeText(DetailActivity.this, resId, Toast.LENGTH_SHORT).show();
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mDetailPresenter.onDestroy();
+    }
 }
