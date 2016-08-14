@@ -19,7 +19,7 @@ import ru.mydelivery.Activities.Main.MainActivity;
 import ru.mydelivery.R;
 import ru.mydelivery.network.Model.Login.Login;
 
-public class SplashActivity extends AppCompatActivity implements LoginView<Login>,
+public class LoginActivity extends AppCompatActivity implements LoginView<Login>,
         CompoundButton.OnCheckedChangeListener {
 
     @BindView(R.id.editLogin)
@@ -60,22 +60,22 @@ public class SplashActivity extends AppCompatActivity implements LoginView<Login
 
     @Override
     public void errorIsEmptyLogin(int resId) {
-        Toast.makeText(SplashActivity.this, resId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this, resId, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void errorIsEmptyPassword(int resId) {
-        Toast.makeText(SplashActivity.this, resId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this, resId, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void errorIsServer(int resId) {
-        Toast.makeText(SplashActivity.this, resId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this, resId, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void userIsNotFound(int resId) {
-        Toast.makeText(SplashActivity.this, resId, Toast.LENGTH_SHORT).show();
+        Toast.makeText(LoginActivity.this, resId, Toast.LENGTH_SHORT).show();
     }
 
     @Override

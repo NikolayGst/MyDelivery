@@ -55,19 +55,13 @@ public class StatusDialogFragment extends DialogFragment implements AdapterView.
         ButterKnife.bind(this, view);
         mDateTimePikerDialog = new DateTimePikerDialog(getActivity(), mEditDate);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
-        return view;
-    }
-
-    @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(),
                 android.R.layout.simple_list_item_1, mListStatus);
         mListView.setAdapter(adapter);
         mListView.setOnItemClickListener(this);
         mButtonOk.setOnClickListener(this);
         mEditDate.setOnClickListener(this);
-
+        return view;
     }
 
     @Override

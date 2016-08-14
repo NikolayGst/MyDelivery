@@ -12,11 +12,12 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import ru.mydelivery.Activities.Main.Presenter.MainPresenterImpl;
 import ru.mydelivery.Activities.Main.Presenter.MainPresenter;
+import ru.mydelivery.Activities.Main.Presenter.MainPresenterImpl;
 import ru.mydelivery.Activities.Main.View.MainView;
 import ru.mydelivery.Adapter.ListJobAdapter;
 import ru.mydelivery.R;
+import ru.mydelivery.Utils.DividerItemDecoration;
 import ru.mydelivery.network.Model.Main.Jobs;
 
 public class MainActivity extends AppCompatActivity implements MainView<List<Jobs>>, SwipeRefreshLayout.OnRefreshListener {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements MainView<List<Job
     private RecyclerView.LayoutManager mLayoutManager;
     private ListJobAdapter mListJobAdapter;
     private MainPresenter mMainPresenter;
+    private RecyclerView.ItemDecoration mItemDecoration;
     private int id;
 
     @Override
@@ -51,10 +53,15 @@ public class MainActivity extends AppCompatActivity implements MainView<List<Job
 
     private void init() {
         id = getIntent().getIntExtra("id", -1);
+
         mLayoutManager = new LinearLayoutManager(this);
         mListJobAdapter = new ListJobAdapter(this);
+
+        mItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL_LIST);
+        mRecyclerView.addItemDecoration(mItemDecoration);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mListJobAdapter);
+
         mSwipe.setColorSchemeResources
                 (R.color.DarkColorPrimary, R.color.green, R.color.blue);
         mSwipe.setOnRefreshListener(this);

@@ -31,7 +31,7 @@ public interface API {
     @POST("/setStatus.php")
     Call<Status> setStatus(@Field("id") String id,
                            @Field("jobs_id") String jobId,
-                           @Field("stutus") String status,
+                           @Field("status") String status,
                            @Field("status_text") String statusText,
                            @Field("date") String date);
 
