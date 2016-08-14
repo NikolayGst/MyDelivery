@@ -13,37 +13,47 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 import ru.mydelivery.R;
+import ru.mydelivery.Utils.DateTimePikerDialog;
+import ru.mydelivery.network.Model.Detail.Status;
+import ru.mydelivery.network.Request;
 
 
 public class StatusDialogFragment extends DialogFragment implements AdapterView.OnItemClickListener,
         View.OnClickListener {
     private String[] mListStatus = {"Не выбрано", "Перенесен", "Частичный возврат", "Отменен", "Выполнено"};
-    private ListView mListView;
-    private RelativeLayout mRelativeLayout;
-    private Button mButtonOk;
-    private TextView txtStatusText;
-    private EditText mEditStatus;
-    private EditText mEditDate;
- //   private VolleyRequest mVolleyRequest;
+
+    @BindView(R.id.list)
+    ListView mListView;
+    @BindView(R.id.rltStatus)
+    RelativeLayout mRelativeLayout;
+    @BindView(R.id.btnOk)
+    Button mButtonOk;
+    @BindView(R.id.txtRltStatus)
+    TextView txtStatusText;
+    @BindView(R.id.txtStatus)
+    EditText mEditStatus;
+    @BindView(R.id.txtNewDate)
+    EditText mEditDate;
+
     private String mStatus;
     private String mStatusText = " ";
     private String mDate = " ";
-//    private DateTimePikerDialog mDateTimePikerDialog;
+    private DateTimePikerDialog mDateTimePikerDialog;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
- //       mVolleyRequest = new VolleyRequest();
-
         View view = inflater.inflate(R.layout.dialog_fragment, container, false);
-        mListView = (ListView) view.findViewById(R.id.list);
-        mRelativeLayout = (RelativeLayout) view.findViewById(R.id.rltStatus);
-        mButtonOk = (Button) view.findViewById(R.id.btnOk);
-        mEditStatus = (EditText) view.findViewById(R.id.txtStatus);
-        mEditDate = (EditText) view.findViewById(R.id.txtNewDate);
-    //    mDateTimePikerDialog = new DateTimePikerDialog(getActivity(), mEditDate);
-        txtStatusText = (TextView) view.findViewById(R.id.txtRltStatus);
+        ButterKnife.bind(this, view);
+        mDateTimePikerDialog = new DateTimePikerDialog(getActivity(), mEditDate);
         getDialog().getWindow().requestFeature(Window.FEATURE_NO_TITLE);
         return view;
     }
@@ -97,13 +107,13 @@ public class StatusDialogFragment extends DialogFragment implements AdapterView.
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnOk:
                 getData();
                 break;
             case R.id.txtNewDate:
                 mEditDate.setText(" ");
-    //            mDateTimePikerDialog.showData();
+                mDateTimePikerDialog.showData();
         }
 
     }
@@ -114,18 +124,22 @@ public class StatusDialogFragment extends DialogFragment implements AdapterView.
         String jobId = user.getString("jobId");
         mStatusText = mEditStatus.getText().toString();
         mDate = mEditDate.getText().toString() + "\n(обновлено)";
-    /*    mVolleyRequest.setStatus(getActivity(), userId, jobId, mStatus, mStatusText, mDate, new CallBack() {
+        Request.getInstance().setStatus(userId, jobId, mStatus, mStatusText, mDate).enqueue(new Callback<Status>() {
             @Override
-            public void onSuccess(String response) {
-                dismiss();
-                Toast.makeText(getContext(), response, Toast.LENGTH_LONG).show();
+            public void onResponse(Call<Status> call, Response<Status> response) {
+                Status status = response.body();
+                if (status.isError()) {
+                    Toast.makeText(getContext(), status.getStatus(), Toast.LENGTH_LONG).show();
+                } else {
+                    dismiss();
+                    Toast.makeText(getContext(), status.getStatus(), Toast.LENGTH_LONG).show();
+                }
             }
 
             @Override
-            public void onFail(String error) {
-                Toast.makeText(getContext(), error, Toast.LENGTH_LONG).show();
+            public void onFailure(Call<Status> call, Throwable t) {
+                Toast.makeText(getContext(), "error", Toast.LENGTH_LONG).show();
             }
-        });*/
-
+        });
     }
 }
