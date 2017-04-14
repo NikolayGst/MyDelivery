@@ -11,7 +11,7 @@ public class Request {
         if(instance == null){
             Retrofit retrofit = new Retrofit.Builder()
                     .addConverterFactory(GsonConverterFactory.create())
-                    .baseUrl("http://mydelivery.96.lt")
+                    .baseUrl("http://mydelivery.96.lt/md/")
                     .build();
            return instance = retrofit.create(API.class);
         }

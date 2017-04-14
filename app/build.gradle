@@ -6,7 +6,7 @@ android {
     buildToolsVersion '25.0.0'
 
     defaultConfig {
-        applicationId "ru.mydelivery"
+        applicationId "ru.mydelivery.client"
         minSdkVersion 17
         targetSdkVersion 24
         versionCode 1
